@@ -1,7 +1,7 @@
 {
     "name": "Buget-Tracker",
     "short_name": "Buget-Tracker",
-    "start_url": ".",
+    "start_url": "/",
     "background_color": "#cadbda",
     "theme_color": "#cadbda",
     "display": "standalone",
