@@ -18,10 +18,10 @@ self.addEventListener('install', event => {
     event.waitUntil(cacheResources());
   
     self.skipWaiting();
-  });
+});
   
   // retrieve assets from cache
-  self.addEventListener('fetch', event => {
+self.addEventListener('fetch', event => {
   
     const handleResourceRequest = async (event) => {
       const matchedCache = await caches.match(event.request);
@@ -29,4 +29,4 @@ self.addEventListener('install', event => {
     }
   
     event.respondWith(handleResourceRequest(event));
-  });
+});
