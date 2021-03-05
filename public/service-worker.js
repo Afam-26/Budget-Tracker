@@ -1,7 +1,7 @@
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
-    '/style.css',
+    '/styles.css',
     '/index.js',
     '/manifest.webmanifest',
     '/db.js',
@@ -19,6 +19,7 @@ self.addEventListener('install', event => {
     // pre cache all static assets
     const cacheResources = async () => {
       const cache = await caches.open(DATA_CACHE_NAME);
+      console.log("Cache ", cache)
       return cache.addAll(FILES_TO_CACHE);
     }
   
