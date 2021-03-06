@@ -13,30 +13,30 @@ const CACHE_NAME = "static-cache-v2";
 const DATA_CACHE_NAME = "data-cache-v1";
   
   // install event handler
-// self.addEventListener('install', event => {
-//     console.log('Install');
+self.addEventListener('install', event => {
+    console.log('Install');
   
-//     // pre cache all static assets
-//     const cacheResources = async () => {
-//       const cache = await caches.open(CACHE_NAME);
-//       console.log("Cache ", cache)
-//       return cache.addAll(FILES_TO_CACHE);
-//     }
-  
-//     event.waitUntil(cacheResources());  
-//     self.skipWaiting();
-//     console.log("Your files were pre-cached successfully!");
-// });
-
-self.addEventListener("install", function(event) {
-  // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      console.log("Opened cache");
+    // pre cache all static assets
+    const cacheResources = async () => {
+      const cache = await caches.open(DATA_CACHE_NAME);
+      console.log("Cache ", cache)
       return cache.addAll(FILES_TO_CACHE);
-    })
-  );
+    }
+  
+    event.waitUntil(cacheResources());  
+    self.skipWaiting();
+    console.log("Your files were pre-cached successfully!");
 });
+
+// self.addEventListener("install", function(event) {
+//   // Perform install steps
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then(function(cache) {
+//       console.log("Opened cache");
+//       return cache.addAll(FILES_TO_CACHE);
+//     })
+//   );
+// });
   
   // activate
 // self.addEventListener("activate", function(event) {
